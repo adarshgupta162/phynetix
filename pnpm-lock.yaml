@@ -96,10 +96,10 @@ importers:
         specifier: latest
         version: 2.17.0(react-dom@18.0.0(react@18.0.0))(react@18.0.0)(typescript@5.0.2)
       '@supabase/ssr':
-        specifier: latest
+        specifier: 0.7.0
         version: 0.7.0(@supabase/supabase-js@2.57.2)
       '@supabase/supabase-js':
-        specifier: 2.57.2
+        specifier: latest
         version: 2.57.2
       '@sveltejs/kit':
         specifier: latest
