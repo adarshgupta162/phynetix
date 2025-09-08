@@ -25,26 +25,53 @@ export default function LoginPage() {
     setError(null)
 
     try {
+      console.log("[v0] Starting login process...")
+
       const { error } = await supabase.auth.signInWithPassword({
         email,
         password,
       })
       if (error) throw error
 
+      console.log("[v0] Authentication successful, getting user...")
+
       // Get user profile to determine redirect
       const {
         data: { user },
       } = await supabase.auth.getUser()
+
       if (user) {
-        const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).single()
+        console.log("[v0] User found:", user.id)
+
+        const { data: profile, error: profileError } = await supabase
+          .from("profiles")
+          .select("role")
+          .eq("id", user.id)
+          .single()
+
+        console.log("[v0] Profile query result:", { profile, profileError })
+
+        if (profileError) {
+          console.error("[v0] Profile fetch error:", profileError)
+          // Fallback: redirect to dashboard anyway since user is authenticated
+          console.log("[v0] Redirecting to dashboard as fallback")
+          router.push("/dashboard")
+          return
+        }
 
         if (profile?.role === "admin") {
+          console.log("[v0] Redirecting admin to admin dashboard")
           router.push("/admin")
         } else {
+          console.log("[v0] Redirecting user to dashboard")
           router.push("/dashboard")
         }
+      } else {
+        console.error("[v0] No user found after authentication")
+        throw new Error("Authentication failed - no user found")
       }
     } catch (error: unknown) {
+      console.error("[v0] Login error:", error)
       setError(error instanceof Error ? error.message : "An error occurred")
     } finally {
       setIsLoading(false)
@@ -56,7 +83,7 @@ export default function LoginPage() {
       <div className="w-full max-w-sm">
         <div className="flex flex-col gap-6">
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">CoachingHub</h1>
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">PhyNetix</h1>
             <p className="text-sm text-gray-600">Sign in to your account</p>
           </div>
 

@@ -85,7 +85,9 @@ export default async function DashboardPage() {
         {/* Welcome Section */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-foreground mb-2">Welcome back, {profile.full_name}!</h1>
-          <p className="text-muted-foreground">Continue your journey towards exam success. You&apos;re doing great!</p>
+          <p className="text-muted-foreground">
+            Continue mastering physics, chemistry, and mathematics. You&apos;re making excellent progress!
+          </p>
         </div>
 
         {/* Stats Overview */}

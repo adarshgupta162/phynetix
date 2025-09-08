@@ -25,8 +25,8 @@ export default async function HomePage() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">CoachingHub</h1>
-          <p className="text-lg text-gray-600">Your gateway to exam success</p>
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">PhyNetix</h1>
+          <p className="text-lg text-gray-600">Master Physics, Chemistry & Mathematics</p>
         </div>
 
         <Card>
@@ -45,7 +45,7 @@ export default async function HomePage() {
         </Card>
 
         <div className="text-center text-sm text-gray-500">
-          <p>Prepare for JEE, NEET, and other competitive exams</p>
+          <p>Advanced preparation for JEE, NEET, and competitive science exams</p>
         </div>
       </div>
     </div>

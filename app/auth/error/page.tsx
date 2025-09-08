@@ -14,7 +14,7 @@ export default async function AuthErrorPage({
       <div className="w-full max-w-sm">
         <div className="flex flex-col gap-6">
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">CoachingHub</h1>
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">PhyNetix</h1>
           </div>
 
           <Card>
